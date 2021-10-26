@@ -10,31 +10,31 @@ time_t startTime, endTime;
 
 char Re;
 
-//±âº»¹®Àå ¼±ÅÃ 
+//ê¸°ë³¸ë¬¸ì¥ ì„ íƒ 
 char sentence[4][100] = { "",
-	"1", //1¹ø 
-	"µÑ ¼Â", //2¹ø
-	"¼Â ³İ"  //3¹ø
+	"ë™í•´ë¬¼ê³¼ ë°±ë‘ì‚°ì´", //1ë²ˆ 
+	"ë§ˆë¥´ê³  ë‹³ë„ë¡", //2ë²ˆ
+	"í•˜ëŠë‹˜ì´ ë³´ìš°í•˜ì‚¬"  //3ë²ˆ
 };
 
-//Ä¿¼­ÀÇ À§Ä¡¸¦ ¿Å°ÜÁÖ´Â ÇÔ¼ö 
+//ì»¤ì„œì˜ ìœ„ì¹˜ë¥¼ ì˜®ê²¨ì£¼ëŠ” í•¨ìˆ˜ 
 void gotoxy(int x, int y) {
 	COORD CursorPosition = { x, y };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), CursorPosition);
 }
 
-//ÃÊ±âÈ­ - Á¦¸ñ, Å©±â, »ö, Áö¿ì±â, ½ÃÀÛ¹®±¸ 
+//ì´ˆê¸°í™” - ì œëª©, í¬ê¸°, ìƒ‰, ì§€ìš°ê¸°, ì‹œì‘ë¬¸êµ¬ 
 void Reset() {
-	system("title Geonwoo's Å¸ÀÚ°ÔÀÓ");
+	system("title Geonwoo's íƒ€ìê²Œì„");
 	system("mode con cols=100 lines=30");
 	system("color F0");
 	system("cls");
 	
 	gotoxy(46, 2);
-	printf("Å¸ÀÚ°ÔÀÓ");
+	printf("íƒ€ìê²Œì„");
 	
 	gotoxy(36, 9);
-	printf("¿øÇÏ½Ã´Â ¹øÈ£¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä");
+	printf("ì›í•˜ì‹œëŠ” ë²ˆí˜¸ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”");
 	
 	gotoxy(42, 13);
 	printf("1      2      3");
@@ -46,22 +46,22 @@ void Reset() {
 	printf("Version.1.0.2");
 	
 	gotoxy(42, 19);
-	printf("´ç½ÅÀÇ ¼±ÅÃÀº: ");
+	printf("ë‹¹ì‹ ì˜ ì„ íƒì€: ");
 }
 
-//°ÔÀÓ½ÃÀÛÀü ÁØºñÈ­¸é
+//ê²Œì„ì‹œì‘ì „ ì¤€ë¹„í™”ë©´
 void gameReady(int n) {
 	system("cls");
 	gotoxy(36, 13);
-	printf("´ç½ÅÀº %d¹øÀ» ¼±ÅÃÇÏ¿´½À´Ï´Ù.", n);
+	printf("ë‹¹ì‹ ì€ %dë²ˆì„ ì„ íƒí•˜ì˜€ìŠµë‹ˆë‹¤.", n);
 	Sleep(1000);
 	
 	system("cls");
 	gotoxy(21, 13);
-	printf("Àá½Ã ÈÄ È­¸é¿¡ ³ª¿À´Â ¹®ÀåÀ» \"¿ÀÅ¸¾øÀÌ\" ÀÔ·ÂÇÏ½Ã¸é µË´Ï´Ù.");
+	printf("ì ì‹œ í›„ í™”ë©´ì— ë‚˜ì˜¤ëŠ” ë¬¸ì¥ì„ \"ì˜¤íƒ€ì—†ì´\" ì…ë ¥í•˜ì‹œë©´ ë©ë‹ˆë‹¤.");
 	/*
 	gotoxy(37, 14);
-	printf("!!¿£ÅÍ¸¦ ¿¬Å¸ÇÏÁö ¸¶¼¼¿ä!!");
+	printf("!!ì—”í„°ë¥¼ ì—°íƒ€í•˜ì§€ ë§ˆì„¸ìš”!!");
 	*/
 	Sleep(1000);
 	
@@ -83,12 +83,12 @@ void gameReady(int n) {
 	system("cls");
 } 
 
-//°ÔÀÓÀÌ ½ÃÀÛÇßÀ» ¶§ + °ÔÀÓÁøÇà + ½Ã°£ ÃøÁ¤ 
+//ê²Œì„ì´ ì‹œì‘í–ˆì„ ë•Œ + ê²Œì„ì§„í–‰ + ì‹œê°„ ì¸¡ì • 
 void gameStart(int n) {
 	
 	/*
 	char trash[1000];
-	gets(trash); //¼ıÀÚ³ª¿À´ÂÁß¿¡ ÀÔ·Â¹ŞÀº°ª Á¦°Å 
+	gets(trash); //ìˆ«ìë‚˜ì˜¤ëŠ”ì¤‘ì— ì…ë ¥ë°›ì€ê°’ ì œê±° 
 	*/
 	
 	
@@ -105,7 +105,7 @@ void gameStart(int n) {
 	gets(a);
 	endTime = clock();
 	
-	score = strcmp(sentence[n], a); //µÎ ¹®ÀÚ¿­ÀÌ °°À¸¸é 0, ´Ù¸£¸é  
+	score = strcmp(sentence[n], a); //ë‘ ë¬¸ìì—´ì´ ê°™ìœ¼ë©´ 0, ë‹¤ë¥´ë©´  
 	
 	t = (float)(endTime-startTime)/(1000);
 	
@@ -119,12 +119,12 @@ main() { while(1) {
 	
 	int Choice;
 	scanf("%d", &Choice);
-	fflush(stdin); //ÀÔ·Â ¹öÆÛ Á¦°Å 
+	fflush(stdin); //ì…ë ¥ ë²„í¼ ì œê±° 
 	
-	//¼±ÅÃ°ª ÆÇ´Ü 
+	//ì„ íƒê°’ íŒë‹¨ 
 	if (!(Choice == 1 || Choice == 2 || Choice == 3)) {
 		gotoxy(36, 20);
-		printf("Àß¸øµÈ °ªÀÌ ÀÔ·ÂµÇ¾ú½À´Ï´Ù.");
+		printf("ì˜ëª»ëœ ê°’ì´ ì…ë ¥ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		Sleep(500);
 		continue;
 	}
@@ -132,22 +132,22 @@ main() { while(1) {
 	gameReady(Choice);                        
 	gameStart(Choice);
 	
-	//¼º°ø½ÇÆĞ ÆÇ´Ü 
+	//ì„±ê³µì‹¤íŒ¨ íŒë‹¨ 
 	if (score == 0) {
 		gotoxy(36, 11);
-		printf("ÃàÇÏÇÕ´Ï´Ù!");
+		printf("ì¶•í•˜í•©ë‹ˆë‹¤!");
 		Sleep(500);
 		gotoxy(36, 13);
 		printf("Time: %.3f s", t);
 	} else {
 		gotoxy(36, 11);
-		printf("½ÇÆĞÇÏ¼Ì½À´Ï´Ù.");
+		printf("ì‹¤íŒ¨í•˜ì…¨ìŠµë‹ˆë‹¤.");
 	}
 	
 
 	Sleep(500);
 	gotoxy(36, 18);
-	printf("´Ù½ÃÇÏ½Ã°Ú½À´Ï±î? (Y, N): ");
+	printf("ë‹¤ì‹œí•˜ì‹œê² ìŠµë‹ˆê¹Œ? (Y, N): ");
 	scanf("%c", &Re);
 	fflush(stdin);
 
