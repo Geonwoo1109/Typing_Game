@@ -43,7 +43,7 @@ void Reset() {
 	printf("Made by Geonwoo_Kim");
 	
 	gotoxy(85, 28);
-	printf("Version.1.0.2");
+	printf("Version.1.1.0");
 	
 	gotoxy(42, 19);
 	printf("당신의 선택은: ");
